@@ -1,0 +1,10 @@
+<menu>
+  <item>
+    <path>civicrm/cardsave/redirect</path>
+    <title>Redirecting to Payment Gateway</title>
+    <page_callback>Cardsave_Redirect_Form</page_callback>
+    <page_arguments></page_arguments>
+    <access_arguments>make online contributions</access_arguments>
+    <adminGroup>CiviContribute</adminGroup>
+  </item>
+</menu>
