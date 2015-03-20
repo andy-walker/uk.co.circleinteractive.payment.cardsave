@@ -9,6 +9,7 @@
  */
 
 define('CARDSAVE_EXTENSION_NAME', 'uk.co.circleinteractive.payment.cardsave');
+define('CARDSAVE_EXTENSION_DIR', __DIR__);
 
 /**
  * Implementation of hook_civicrm_config
@@ -51,15 +52,15 @@ function cardsave_civicrm_managed(&$entities) {
             'title'           => 'Cardsave',
             'description'     => 'Cardsave payment processor integration',
             'class_name'      => 'Payment_Cardsave',
-            'billing_mode'    => 'form',
+            'billing_mode'    => 'notify',
             'user_name_label' => 'Merchant ID',
             'password_label'  => 'Password',
             'signature_label' => 'Pre-Shared Key',
             'is_recur'        => 0,
             'payment_type'    => 1,
             
-            'url_site_default'      => 'https://gw1.cardsaveonlinepayments.com:4430',
-            'url_site_test_default' => 'https://gw1.cardsaveonlinepayments.com:4430'
+            'url_site_default'      => 'https://mms.cardsaveonlinepayments.com/Pages/PublicPages/PaymentForm.aspx',
+            'url_site_test_default' => 'https://mms.cardsaveonlinepayments.com/Pages/PublicPages/PaymentForm.aspx'
 
         )
 
