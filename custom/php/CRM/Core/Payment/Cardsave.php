@@ -101,7 +101,13 @@ class CRM_Core_Payment_Cardsave extends CRM_Core_Payment {
         $config      = CRM_Core_Config::singleton();
         $transaction = &$_SESSION['cardsave_trxn'];
 
-        $callbackURL  = CRM_Utils_System::url('civicrm/payment/ipn', '', true, null, false, true, false);
+        $callbackParams = sprintf(
+            'mo=%s&processor_id=%s',
+            $component,
+            $this->_paymentProcessor['id'] 
+        );
+ 
+        $callbackURL  = CRM_Utils_System::url('civicrm/payment/ipn', $callbackParams, true, null, false, true, false);
         $currencyCode = CRM_Core_DAO::singleValueQuery("
             SELECT numeric_code FROM civicrm_currency WHERE name = %1
         ", array(
@@ -213,15 +219,16 @@ class CRM_Core_Payment_Cardsave extends CRM_Core_Payment {
             case 'contribute':
             case 'event':
                 
-                $ipn     = new BitPay_Payment_IPN();
+                $ipn = new Cardsave_Payment_IPN();
+                /*
                 $result  = $ipn->verifyNotification();
                 
                 if (is_string($result))
                     return CRM_Core_Error::debug_log_message(
                         CARDSAVE_EXTENSION_NAME . ': ' . $result
                     );
-
-                $ipn->main($module, $result);
+                */
+                $ipn->main($module);
                 break;
 
             default:
