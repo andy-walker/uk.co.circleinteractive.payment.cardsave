@@ -139,7 +139,7 @@ class CRM_Core_Payment_Cardsave extends CRM_Core_Payment {
             $stateProvince = CRM_Core_DAO::singleValueQuery("
                 SELECT name FROM civicrm_state_province WHERE id = %1
             ", array(
-                  1 => array($state_province_id, 'Positive')
+                  1 => array($address['state_province_id'], 'Positive')
                )
             );
 
