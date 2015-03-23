@@ -6,7 +6,7 @@ class Cardsave_Payment_IPN {
     protected     $component;
     
     public function main($module) {
-        CRM_Core_Error::debug_log_message('Cardsave IPN: module = ' . $module . ', data = ' . print_r($_REQUEST, true));
+        watchdog('Cardsave IPN', 'module = ' . $module . ', data = <pre>' . print_r($_REQUEST, true) . '</pre>');
     }
 
 }   

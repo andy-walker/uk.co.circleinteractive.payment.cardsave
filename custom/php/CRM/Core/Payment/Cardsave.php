@@ -161,7 +161,7 @@ class CRM_Core_Payment_Cardsave extends CRM_Core_Payment {
             'Address2'                  => isset($address['supplemental_address_1']) ? $address['supplemental_address_1'] : '',
             'Address3'                  => isset($address['supplemental_address_2']) ? $address['supplemental_address_2'] : '',
             'Address4'                  => isset($address['supplemental_address_3']) ? $address['supplemental_address_3'] : '',
-            'City'                      => isset($address['city']) ?    $address['city'] : '',
+            'City'                      => isset($address['city']) ? $address['city'] : '',
             'State'                     => $stateProvince,
             'PostCode'                  => $address['postal_code'],
             'CountryCode'               => isset($country_iso_code) ? $this->getCountryCode($country_iso_code) : '',
